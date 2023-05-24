@@ -1,0 +1,98 @@
+# Put me in ~/.gitconfig
+
+[user]
+	email = dimitri@dmerej.info
+	name = Dimitri Merejkowsky
+
+[alias]
+	ci = commit
+	cp = commit-and-push
+	co = checkout
+	fix = commit --fixup
+	sq = commit --squash
+	fp = fpush
+	fu = fetch upstream
+	fo = fetch origin
+	go = reset --hard
+	gou = reset --hard @{u}
+	lg = log --color --graph --pretty=format:'%Cgreen%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lgs = log --graph --pretty=format:'%Cgreen%h%Creset - %s %C(yellow)%d' --abbrev-commit
+	lgm = !git lg --merges
+	logp = log --find-renames --patch-with-stat
+	logu = log @{u}
+	diffu = diff @{u}
+	diffo = diff origin/main
+	mend = commit --amend
+
+	pa = push-all-and-fetch
+	prune-merged = !git branch --merged | grep -v "\\*" | grep -v main | grep -v master | xargs -n1 git branch -d
+
+	outgoing = log --oneline @{u}..HEAD
+	whatsnew = log --oneline HEAD..@{u}
+
+	ck = cherry-pick
+	ca = cherry-pick --abort
+	cc = cherry-pick --continue
+	cx = cherry-pick -x
+
+	r = rebase-n-commits
+	ra = rebase --abort
+	rc = rebase --continue
+	rcr = commit-and-rebase
+	ri = rebase --interactive
+	ro = rebase -i origin/main
+	rs = rebase --skip
+	ru = rebase -i upstream/main
+
+	st = status --branch
+
+
+
+[diff]
+	compactionHeuristic = true
+	colorMoved = true
+
+
+[fetch]
+	prune = true
+
+[gui]
+	spellingDictionary = en_US
+
+[guitool "pull-rebase"]
+	cmd = git pull --rebase
+
+[guitool "clean"]
+	cmd = git clean -fd
+	confirm = true
+
+[guitool "reset"]
+	cmd = git reset --hard
+	confirm = true
+
+[init]
+  defaultBranch = main
+
+[merge]
+	tool = kdiff3
+
+
+[mergetool]
+	keepBackup = false
+
+[pull]
+	rebase = true
+
+[push]
+	default = tracking
+
+[rebase]
+	stat = true
+	autosquash = true
+
+[rerere]
+	enabled = true
+
+[credential]
+	helper = cache
+	timeout = 500

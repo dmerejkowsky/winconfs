@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+function main() {
+  if [[ -z "$1" ]] ; then
+    echo "Missing commit message"
+    return 1
+  fi
+  git commit --all --message "$1" || true
+  git push $2
+}
+
+main "$@"

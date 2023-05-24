@@ -1,0 +1,53 @@
+# Put me in ~/.config/starship.toml
+
+command_timeout = 1000
+
+[aws]
+disabled = true
+
+[battery]
+full_symbol = 'batt: '
+charging_symbol = 'batt:️ '
+discharging_symbol = 'batt: '
+
+[[battery.display]]
+threshold = 10
+
+[package]
+disabled = true
+
+[cmd_duration]
+disabled = false
+format = "[(took $duration)](blue)"
+
+[directory]
+truncation_symbol = "…/"
+truncate_to_repo = false
+style = "green"
+
+[git_branch]
+format = 'on [$branch(:$remote_branch)]($style) '
+
+[git_status]
+ahead = "+"
+behind = "-"
+diverged = "+-"
+renamed = "->"
+deleted = "x"
+
+[gcloud]
+disabled = true
+
+[hostname]
+ssh_only = true
+trim_at = ""
+format = "@[$hostname](bold yellow) "
+
+[nodejs]
+symbol = "🖧 "
+
+[status]
+disabled = false
+
+[username]
+format = "[$user](bold yellow)"

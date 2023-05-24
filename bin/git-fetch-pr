@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+function main() {
+  if [[ "$#" -ne 2 ]] ; then
+    echo "usage: $(basename $0) REMOTE_NAME PR_NUMBER"
+    return 1
+  fi
+  origin=$1
+  number=$2
+  remote_ref="pull/$number/head"
+  local_ref="pr-$number"
+  git fetch $origin $remote_ref:$local_ref
+}
+
+main $@
+
